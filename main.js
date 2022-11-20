@@ -70,11 +70,7 @@ function enableSavePreferences() {
 }
 
 function loadPreferences() {
-  PREFERENCES.carbs = localStorage.getItem(PREFERENCE_KEY_CARBS);
-  PREFERENCES.carbsDosage = localStorage.getItem(PREFERENCE_KEY_CARBS_DOSAGE);
-  PREFERENCES.dosage = localStorage.getItem(PREFERENCE_KEY_DOSAGE);
-  PREFERENCES.increment = localStorage.getItem(PREFERENCE_KEY_INCREMENT);
-  PREFERENCES.threshold = localStorage.getItem(PREFERENCE_KEY_THRESHOLD);
+  savePreferences();
 
   if (PREFERENCES.carbs)
     document.querySelector(PREFERENCES_CARBS_SELECTOR).value = PREFERENCES.carbs;
@@ -90,6 +86,14 @@ function loadPreferences() {
 
   if (PREFERENCES.threshold)
     document.querySelector(PREFERENCES_THRESHOLD_SELECTOR).value = PREFERENCES.threshold;
+}
+
+function savePreferences() {
+  PREFERENCES.carbs = localStorage.getItem(PREFERENCE_KEY_CARBS);
+  PREFERENCES.carbsDosage = localStorage.getItem(PREFERENCE_KEY_CARBS_DOSAGE);
+  PREFERENCES.dosage = localStorage.getItem(PREFERENCE_KEY_DOSAGE);
+  PREFERENCES.increment = localStorage.getItem(PREFERENCE_KEY_INCREMENT);
+  PREFERENCES.threshold = localStorage.getItem(PREFERENCE_KEY_THRESHOLD);
 }
 
 function setUpCalculatorButtonHandler() {
@@ -123,6 +127,8 @@ function setUpPreferenceFormHandler() {
           localStorage.setItem(el.name, el.value);
         }
       }
+
+      savePreferences();
 
       displaySavePreferencesMessage('Preferences were saved', enableSavePreferences);
     } catch(ex) {
