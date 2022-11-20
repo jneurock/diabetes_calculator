@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Diabetes Calculator</title>
+    <meta name="description" content="Estimate insulin dosage based on glucose readings and planned carbs">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <h1 class="title">Diabetes Calculator</h1>
+        <details>
+          <summary>Set Preferences</summary>
+          <form class="preferences">
+            <section class="preferences__section">
+              <div>
+                <label for="preferences__increment">
+                  For every
+                  <input id="preferences__increment" name="increment" type="number">
+                  mg/dL above
+                </label>
+                <input id="preferences__threshold" name="threshold" type="number">
+              </div>
+              <div>
+                <label for="preferences__threshold">
+                  take
+                </label>
+                <label for="preferences__dosage">
+                  <input id="preferences__dosage" name="dosage" type="number">
+                  unit(s) of insulin.
+                </label>
+              </div>
+            </section>
+            <section class="preferences__section">
+              <div>
+                <label for="preferences__carbs">
+                  For every <input id="preferences__carbs" name="carbs" type="number">
+                  grams of carbohydrates
+                </label>
+              </div>
+              <div>
+                <label for="preferences__carbs-dosage">
+                  take <input id="preferences__carbs-dosage" name="carbs-dosage" type="number"> unit(s)
+                  of insulin.
+                </label>
+              </div>
+            </section>
+            <div class="flex flex--between">
+              <button type="submit">Save</button>
+              <span class="preferences__message"></span>
+            </div>
+          </form>
+        </details>
+        <div class="calculator">
+          <h2>Calculate Dose</h2>
+          <div class="flex">
+            <label for="glucose">
+              mmol/L:
+              <input id="glucose" type="number">
+            </label>
+            <label for="carbs">
+              Carbohydrates:
+              <input id="carbs" type="number">
+            </label>
+          </div>
+          <div class="flex flex--between">
+            <button class="ghost calculator__button" data-direction="up">⬆️</button>
+            <button class="ghost calculator__button" data-direction="slight-up">↗️</button>
+            <button class="ghost calculator__button" data-direction="steady">➡️</button>
+            <button class="ghost calculator__button" data-direction="slight-down">↘️</button>
+            <button class="ghost calculator__button" data-direction="down">⬇️</button>
+          </div>
+          <h3 class="calculator__units">&nbsp;</h3>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <h3>Instructions</h3>
+        <p>
+          Enter correction rates under <em>Set Preferences</em> to save them for this device.
+        </p>
+        <p>
+          Fill in <em>Glucose Reading</em> and press the appropriate arrow button to
+          calculate an insulin dose.
+        </p>
+      </div>
+    </footer>
+    <script src="main.js"></script>
+  </body>
+</html>
