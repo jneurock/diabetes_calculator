@@ -13,7 +13,36 @@
   <body>
     <main>
       <div class="container">
-        <h1 class="title">Diabetes Calculator</h1>
+        <h1 class="title">💉 Diabetes Calculator</h1>
+        <div class="calculator">
+          <h2>Calculate Dose</h2>
+          <div class="flex">
+            <label for="glucose">
+              mmol/L:
+              <input id="glucose" type="number">
+            </label>
+            <label for="carbs">
+              Carbohydrates:
+              <input id="carbs" type="number">
+            </label>
+          </div>
+          <div class="flex flex--between">
+            <button class="ghost calculator__button" data-direction="up">⬆️</button>
+            <button class="ghost calculator__button" data-direction="slight-up">↗️</button>
+            <button class="ghost calculator__button" data-direction="steady">➡️</button>
+            <button class="ghost calculator__button" data-direction="slight-down">↘️</button>
+            <button class="ghost calculator__button" data-direction="down">⬇️</button>
+          </div>
+          <h3 class="calculator__units">&nbsp;</h3>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <h3>Instructions</h3>
+        <p>
+          Enter correction rates under <em>Set Preferences</em> to save them for this device.
+        </p>
         <details>
           <summary>Set Preferences</summary>
           <form class="preferences">
@@ -56,35 +85,6 @@
             </div>
           </form>
         </details>
-        <div class="calculator">
-          <h2>Calculate Dose</h2>
-          <div class="flex">
-            <label for="glucose">
-              mmol/L:
-              <input id="glucose" type="number">
-            </label>
-            <label for="carbs">
-              Carbohydrates:
-              <input id="carbs" type="number">
-            </label>
-          </div>
-          <div class="flex flex--between">
-            <button class="ghost calculator__button" data-direction="up">⬆️</button>
-            <button class="ghost calculator__button" data-direction="slight-up">↗️</button>
-            <button class="ghost calculator__button" data-direction="steady">➡️</button>
-            <button class="ghost calculator__button" data-direction="slight-down">↘️</button>
-            <button class="ghost calculator__button" data-direction="down">⬇️</button>
-          </div>
-          <h3 class="calculator__units">&nbsp;</h3>
-        </div>
-      </div>
-    </main>
-    <footer>
-      <div class="container">
-        <h3>Instructions</h3>
-        <p>
-          Enter correction rates under <em>Set Preferences</em> to save them for this device.
-        </p>
         <p>
           Fill in <em>Glucose Reading</em> and press the appropriate arrow button to
           calculate an insulin dose.

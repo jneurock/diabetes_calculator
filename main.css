@@ -56,13 +56,17 @@ footer {
   padding: 0 2rem 4rem;
 }
 
+h1 {
+  font-size: 3.2rem;
+}
+
 input {
   width: 4rem;
 }
 
 main {
   background-color: var(--bg-color);
-  padding: 1rem 2rem 3rem;
+  padding: 1rem 2rem 0;
 }
 
 .calculator {
@@ -98,7 +102,8 @@ main {
 }
 
 .preferences {
-  padding: 1rem 0;
+  border-bottom: 1px solid var(--footer-border-color);
+  padding: 2rem 1rem;
 }
 
 .preferences section {
@@ -113,5 +118,5 @@ main {
 }
 
 .title {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
