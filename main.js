@@ -38,13 +38,13 @@ let savePreferencesMessage;
 function calculateDose({ carbs, glucose }) {
   let dose = 0;
 
-  if (carbs) {
+  if (carbs)
     dose += carbs / parseInt(PREFERENCES.carbs) * parseInt(PREFERENCES.carbsDosage);
-  }
 
-  if (glucose) {
+  if (glucose)
     dose += (glucose - parseInt(PREFERENCES.threshold)) / parseInt(PREFERENCES.increment) * parseInt(PREFERENCES.dosage);
-  }
+
+  if (dose < 0) dose = 0;
 
   document.querySelector(CALC_UNITS_SELECTOR).innerHTML = `Dose: ${dose} unit(s) of insulin`
 }
