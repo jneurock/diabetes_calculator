@@ -2,6 +2,7 @@ const CALC_BUTTON_CLASS = 'calculator__button';
 const CALC_CARBS_SELECTOR = '#carbs';
 const CALC_GLUCOSE_SELECTOR = '#glucose';
 const CALC_UNITS_SELECTOR = '.calculator__units';
+const DOSE_CEILING_THRESHOLD = 0.3;
 const PREFERENCE_KEY_CARBS = 'carbs';
 const PREFERENCE_KEY_CARBS_DOSAGE = 'carbs-dosage';
 const PREFERENCE_KEY_DOSAGE = 'dosage';
@@ -46,7 +47,7 @@ function calculateDose({ carbs, glucose }) {
 
   if (dose < 0) dose = 0;
 
-  document.querySelector(CALC_UNITS_SELECTOR).innerHTML = `Dose: ${dose} unit(s) of insulin`
+  document.querySelector(CALC_UNITS_SELECTOR).innerHTML = `Dose: ${roundDose(dose)} unit(s) of insulin`
 }
 
 function disableSavePreferences() {
@@ -86,6 +87,14 @@ function loadPreferences() {
 
   if (PREFERENCES.threshold)
     document.querySelector(PREFERENCES_THRESHOLD_SELECTOR).value = PREFERENCES.threshold;
+}
+
+function roundDose(dose) {
+  if (dose - Math.trunc(dose) > DOSE_CEILING_THRESHOLD) {
+    return Math.ceil(dose);
+  }
+
+  return Math.floor(dose);
 }
 
 function savePreferences() {
