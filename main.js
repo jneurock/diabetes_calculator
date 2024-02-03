@@ -39,9 +39,9 @@ const PREFERENCES = {
   carbsDosage: '',
   dosage: '',
   increment: '',
-  scale: PREFERENCES_DEFAULT_SCALE,
+  scale: '',
   threshold: '',
-}
+};
 
 const SCALE_MODIFIER = {
   mg: 1,
@@ -127,7 +127,7 @@ function savePreferences() {
   PREFERENCES.carbsDosage = localStorage.getItem(PREFERENCE_KEY_CARBS_DOSAGE);
   PREFERENCES.dosage = localStorage.getItem(PREFERENCE_KEY_DOSAGE);
   PREFERENCES.increment = localStorage.getItem(PREFERENCE_KEY_INCREMENT);
-  PREFERENCES.scale = localStorage.getItem(PREFERENCE_KEY_SCALE);
+  PREFERENCES.scale = localStorage.getItem(PREFERENCE_KEY_SCALE) || PREFERENCES_DEFAULT_SCALE;
   PREFERENCES.threshold = localStorage.getItem(PREFERENCE_KEY_THRESHOLD);
 }
 
